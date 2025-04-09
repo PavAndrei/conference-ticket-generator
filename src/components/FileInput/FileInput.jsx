@@ -18,11 +18,10 @@ export const FileInput = ({ name, description }) => {
     changeImage,
     inputRefs,
     isDragActive,
+    errors,
   } = useContext(DataContext);
 
   const inputData = inputs.find((inp) => inp.name === name);
-
-  if (!inputData) return null;
 
   return (
     <div className={styles.group}>
@@ -42,7 +41,7 @@ export const FileInput = ({ name, description }) => {
       <div
         className={`${styles.uploadArea} ${
           isDragActive ? styles.uploadAreaDrag : ""
-        }`}
+        } ${errors[name] ? styles.uploadAreaError : ""}`}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
@@ -90,12 +89,18 @@ export const FileInput = ({ name, description }) => {
           </>
         )}
       </div>
-      <div className={styles.warning}>
-        <span>
-          <Info></Info>
-        </span>
-        <span>Upload your photo {"(JPG or PNG, max size: 500KB)"}.</span>
-      </div>
+
+      {errors[name] ? (
+        <div className={styles.warning}>
+          <Info isError={true} />
+          <span className={styles.errorText}>{errors[name]}</span>
+        </div>
+      ) : (
+        <div className={styles.warning}>
+          <Info isError={false} />
+          <span>Upload your photo {"(JPG or PNG, max size: 500KB)"}.</span>
+        </div>
+      )}
     </div>
   );
 };

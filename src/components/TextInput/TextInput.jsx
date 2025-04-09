@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 
+import { Info } from "../../icons/Info";
+
 import styles from "./styles.module.css";
 
 export const TextInput = ({ description, type, placeholder, name }) => {
-  const { onChange } = useContext(DataContext);
+  const { onChange, errors } = useContext(DataContext);
 
   return (
     <label className={styles.group}>
@@ -14,8 +16,15 @@ export const TextInput = ({ description, type, placeholder, name }) => {
         type={type}
         name={name}
         className={styles.input}
+        autoComplete="off"
         placeholder={placeholder}
       />
+      {errors[name] && (
+        <div className={styles.error}>
+          <Info isError={true} />
+          <p className={styles.errorText}>{errors[name]}</p>
+        </div>
+      )}
     </label>
   );
 };

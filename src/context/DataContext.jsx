@@ -1,9 +1,13 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
+
+import { validator } from "../utils/validator";
+import { validatorConfig } from "../constants/validatorConfig";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [formData, setFormData] = useState(null);
+  const [errors, setErrors] = useState({});
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [isDragActive, setIsDragActive] = useState(false);
   const [inputs, setInputs] = useState([
@@ -53,6 +57,10 @@ export const DataProvider = ({ children }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const isValid = validate();
+    if (!isValid) return;
+
     const data = {};
     inputs.forEach((inp) => {
       data[inp.name] = inp.type === "file" ? inp.file : inp.value;
@@ -125,6 +133,16 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const validate = () => {
+    const errors = validator(inputs, validatorConfig);
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  useEffect(() => {
+    validate();
+  }, [inputs]);
+
   return (
     <DataContext.Provider
       value={{
@@ -142,6 +160,8 @@ export const DataProvider = ({ children }) => {
         handleDrop,
         removeImage,
         changeImage,
+        errors,
+        validate,
       }}
     >
       {children}
