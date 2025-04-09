@@ -1,0 +1,20 @@
+.title {
+  font-size: 50px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.colored {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shifted {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+
+  padding-top: 20px;
+}

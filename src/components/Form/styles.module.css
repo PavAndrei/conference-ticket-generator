@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  width: 35%;
+  align-self: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 20px;
+
+  background-color: var(--orange-light);
+  border-radius: 8px;
+
+  border: 1px solid var(--orange-light);
+
+  color: var(--darkest);
+  font-weight: 700;
+
+  outline-offset: 2px;
+
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover {
+  background-color: var(--orange-dark);
+  border: 1px solid var(--orange-dark);
+}

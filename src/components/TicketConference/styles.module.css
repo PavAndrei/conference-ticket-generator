@@ -1,0 +1,22 @@
+.conference {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--lightest);
+  font-size: 36px;
+}
+
+.date {
+  color: var(--gray);
+  font-size: 20px;
+}

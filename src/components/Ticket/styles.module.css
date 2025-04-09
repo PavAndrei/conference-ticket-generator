@@ -1,0 +1,67 @@
+.ticket {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 260px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+
+.user {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.userdata {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.username {
+  color: var(--lightest);
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.usergit {
+  color: var(--gray);
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.number {
+  position: absolute;
+  top: 130px;
+  left: 512px;
+  transform: rotate(90deg);
+  color: var(--gray);
+  font-weight: 700;
+  font-size: 24px;
+}
