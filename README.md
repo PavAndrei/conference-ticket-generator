@@ -14,7 +14,6 @@ This is a solution to the [Conference ticket generator challenge on Frontend Men
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -35,12 +34,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-ticket-generator-app-with-react-aAiVst3fVa)
+- Live Site URL: [Add live site URL here](https://conference-ticket-generator-peach-rho.vercel.app/)
 
 ## My process
 
@@ -99,5 +98,5 @@ In the future, I plan to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- GitHub - [GitHub](https://github.com/PavAndrei/)
+- Frontend Mentor - [FrontendMentor](https://www.frontendmentor.io/profile/PavAndrei)
