@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-ticket-generator-app-with-react-aAiVst3fVa)
-- Live Site URL: [Add live site URL here](https://conference-ticket-generator-peach-rho.vercel.app/)
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/responsive-ticket-generator-app-with-react-aAiVst3fVa)
+- Live Site URL: [live](https://conference-ticket-generator-peach-rho.vercel.app/)
 
 ## My process
 
