@@ -16,15 +16,14 @@ export const TextInput = ({ description, type, placeholder, name }) => {
         type={type}
         name={name}
         className={styles.input}
-        autoComplete="off"
         placeholder={placeholder}
       />
-      {errors[name] && (
+      {errors[name] ? (
         <div className={styles.error}>
           <Info isError={true} />
           <p className={styles.errorText}>{errors[name]}</p>
         </div>
-      )}
+      ) : null}
     </label>
   );
 };

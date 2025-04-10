@@ -66,12 +66,23 @@ body {
 
   background-size: 60% 50%, 40% 30%, cover, cover;
   background-position: 0% 100%, 100% 7%, 100% 100%, 100% 100%;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 }
 
 input {
   display: block;
   font-family: "Inconsolata";
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: hsl(0, 0%, 100%) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--darkest) inset !important;
+  box-shadow: 0 0 0px 1000px var(--darkest) inset !important;
+  background-color: var(--darkest) !important;
+  background-image: none !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 input::placeholder {

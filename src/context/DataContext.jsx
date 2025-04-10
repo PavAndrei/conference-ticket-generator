@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 import { validator } from "../utils/validator";
 import { validatorConfig } from "../constants/validatorConfig";
@@ -43,10 +43,14 @@ export const DataProvider = ({ children }) => {
         if (e.target.name === inp.name) {
           if (e.target.type === "file") {
             const file = e.target.files[0];
-            const preview = URL.createObjectURL(file);
-            return { ...inp, file, preview };
+            if (file) {
+              const preview = URL.createObjectURL(file);
+              return { ...inp, file, preview };
+            } else {
+              return inp;
+            }
           } else {
-            return { ...inp, value: e.target.value };
+            return { ...inp, value: e.target.value.trim() };
           }
         } else {
           return inp;
@@ -139,29 +143,26 @@ export const DataProvider = ({ children }) => {
     return Object.keys(errors).length === 0;
   };
 
-  useEffect(() => {
-    validate();
-  }, [inputs]);
-
   return (
     <DataContext.Provider
       value={{
         inputs,
+        errors,
+        formData,
+        isFormFilled,
+        validate,
         onChange,
         onSubmit,
-        isFormFilled,
-        formData,
+
+        inputRefs,
         isDragActive,
         setIsDragActive,
-        inputRefs,
         handleDragEnter,
         handleDragLeave,
         handleDragOver,
         handleDrop,
         removeImage,
         changeImage,
-        errors,
-        validate,
       }}
     >
       {children}

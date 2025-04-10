@@ -7,6 +7,14 @@
   align-self: center;
 }
 
+.form::after {
+  position: absolute;
+  top: 43%;
+  left: 65%;
+  content: url("./public/images/pattern-circle.svg");
+  z-index: 100;
+}
+
 .btn {
   display: flex;
   align-items: center;

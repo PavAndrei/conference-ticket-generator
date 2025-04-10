@@ -1,5 +1,7 @@
 import styles from "./styles.module.css";
 
+import { randomNumber } from "../../utils/randomNumber";
+
 import { TicketShape } from "../../icons/TicketShape";
 import { TicketConference } from "../TicketConference/TicketConference";
 import { TicketUser } from "../TicketUser/TicketUser";
@@ -14,7 +16,7 @@ export const Ticket = () => {
         <TicketConference />
         <TicketUser />
       </div>
-      <div className={styles.number}>#01609</div>
+      <div className={styles.number}>#{randomNumber()}</div>
     </div>
   );
 };

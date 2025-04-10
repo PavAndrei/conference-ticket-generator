@@ -6,6 +6,15 @@
   margin: 0 auto;
   margin-top: 50px;
   height: 260px;
+  z-index: 100;
+}
+
+.ticket::after {
+  position: absolute;
+  top: 12%;
+  left: 85%;
+  content: url("./public/images/pattern-circle.svg");
+  z-index: -100;
 }
 
 .bg {
