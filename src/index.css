@@ -59,7 +59,7 @@ body {
   line-height: 1;
   min-height: 100vh;
 
-  background-image: url(../public//images//pattern-squiggly-line-bottom-desktop.svg),
+  background-image: url(../public/images/pattern-squiggly-line-bottom-desktop.svg),
     url(../public/images/pattern-squiggly-line-top.svg),
     url(../public/images/pattern-lines.svg),
     url(../public/images/background-desktop.png);
@@ -94,16 +94,32 @@ button {
   cursor: pointer;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 1180px) {
   body {
-    background-image: url(../public/images/pattern-lines.svg),
-      url(../public/images/background-tablet.png);
+    background-size: 40% 30%, 20% 10%, cover, cover;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1180px) {
   body {
-    background-image: url(../public/images/pattern-lines.svg),
-      url(../public/images/background-tablet.png);
+    background-size: 50% 20%, 20% 10%, cover, cover;
   }
-} */
+}
+
+@media (max-width: 900px) {
+  body {
+    background-size: 30% 10%, 20% 10%, cover, cover;
+    background-position: 0% 100%, 100% 2%, 100% 100%, 100% 100%;
+
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    background-size: 60% 40%, 20% 10%, cover, cover;
+    background-position: 0% 125%, 100% 2%, 100% 100%, 100% 100%;
+
+    font-size: 16px;
+  }
+}

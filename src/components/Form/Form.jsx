@@ -34,6 +34,7 @@ export const Form = () => {
       <button onClick={onSubmit} className={styles.btn}>
         Generate My Ticket
       </button>
+      <div className={styles.decor}></div>
     </form>
   );
 };

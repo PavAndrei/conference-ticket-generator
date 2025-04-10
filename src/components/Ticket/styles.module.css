@@ -7,6 +7,7 @@
   margin-top: 50px;
   height: 260px;
   z-index: 100;
+  overflow: hidden;
 }
 
 .ticket::after {
@@ -30,8 +31,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  padding-top: 30px;
-  padding-left: 20px;
+  padding: 20px 50px;
 }
 
 .user {
@@ -73,4 +73,10 @@
   color: var(--gray);
   font-weight: 700;
   font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .ticket {
+    margin-top: 30px;
+  }
 }

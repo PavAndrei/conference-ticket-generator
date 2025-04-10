@@ -18,3 +18,27 @@
 
   padding-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .shifted {
+    display: inline;
+  }
+}
+
+@media (max-width: 475px) {
+  .title {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .shifted {
+    padding-top: 10px;
+  }
+}

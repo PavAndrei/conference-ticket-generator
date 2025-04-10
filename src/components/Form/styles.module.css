@@ -5,14 +5,16 @@
 
   width: 35%;
   align-self: center;
+  overflow: hidden;
+  padding: 4px;
 }
 
-.form::after {
+.decor {
   position: absolute;
   top: 43%;
   left: 65%;
   content: url("./public/images/pattern-circle.svg");
-  z-index: 100;
+  z-index: -100;
 }
 
 .btn {
@@ -38,4 +40,31 @@
 .btn:hover {
   background-color: var(--orange-dark);
   border: 1px solid var(--orange-dark);
+}
+
+@media (max-width: 1280px) {
+  .form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 80%;
+  }
+
+  .decor {
+    top: 55%;
+    left: 45%;
+  }
+}
+
+@media (max-width: 475px) {
+  .form {
+    width: 100%;
+  }
+
+  .decor {
+    display: none;
+  }
 }
