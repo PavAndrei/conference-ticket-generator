@@ -1,60 +1,37 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 import { validator } from "../utils/validator";
+
 import { validatorConfig } from "../constants/validatorConfig";
+import { inputsInitialState } from "../constants/inputsInitialState";
+import { validateField } from "../utils/validateField";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [formData, setFormData] = useState(null);
   const [errors, setErrors] = useState({});
-  const [hasChanged, setHasChanged] = useState(false);
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [isDragActive, setIsDragActive] = useState(false);
-  const [inputs, setInputs] = useState([
-    { name: "file", description: "Upload Avatar", type: "file", file: null },
-    {
-      name: "name",
-      description: "Full Name",
-      type: "text",
-      placeholder: "John Doe",
-      value: "",
-    },
-    {
-      name: "email",
-      description: "Email Address",
-      type: "email",
-      placeholder: "example@email.com",
-      value: "",
-    },
-    {
-      name: "git",
-      description: "GitHub Username",
-      type: "text",
-      placeholder: "@yourusername",
-      value: "",
-    },
-  ]);
+  const [inputs, setInputs] = useState(inputsInitialState);
 
   const inputRefs = useRef({});
 
   const onChange = (e) => {
     const { name, type, value, files } = e.target;
 
-    setHasChanged(true);
+    const selectedFile = type === "file" ? files?.[0] : null;
 
     setInputs((prevInputs) =>
       prevInputs.map((inp) => {
         if (inp.name === name) {
           if (type === "file") {
-            const file = files[0];
-
-            if (file) {
-              const preview = URL.createObjectURL(file);
-              return { ...inp, file, preview };
+            if (!selectedFile) {
+              return inp;
             }
 
-            return { ...inp, file: null, preview: null };
+            const preview = URL.createObjectURL(selectedFile);
+            return { ...inp, file: selectedFile, preview };
           } else {
             return { ...inp, value: value.trim() };
           }
@@ -63,13 +40,14 @@ export const DataProvider = ({ children }) => {
       })
     );
 
-    // Валидация по типу
     if (type === "file") {
-      const file = files[0];
-      const error = validateField(name, file, "file");
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+      if (selectedFile) {
+        const error = validateField(name, selectedFile, "file");
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+      }
     } else {
-      const error = validateField(name, value.trim());
+      const trimmed = value.trim();
+      const error = validateField(name, trimmed);
       setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
     }
   };
@@ -161,29 +139,18 @@ export const DataProvider = ({ children }) => {
     return Object.keys(errors).length === 0;
   };
 
-  const validateField = (name, value, type = "text") => {
-    if (type === "file") {
-      const file = value;
-      if (!file) return "File is required";
+  const resetForm = () => {
+    setInputs(inputsInitialState);
 
-      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
-      const maxSize = 500 * 1024; // 500 KB
+    setFormData(null);
+    setIsFormFilled(false);
+    setErrors({});
 
-      if (!allowedTypes.includes(file.type)) {
-        return "Only JPG and PNG formats are allowed";
+    Object.keys(inputRefs.current).forEach((name) => {
+      if (inputRefs.current[name]) {
+        inputRefs.current[name].value = "";
       }
-
-      if (file.size > maxSize) {
-        return "File size must not exceed 500KB";
-      }
-
-      return null;
-    }
-
-    const fakeInput = [{ name, value }];
-    const fieldConfig = { [name]: validatorConfig[name] };
-    const result = validator(fakeInput, fieldConfig);
-    return result[name] || null;
+    });
   };
 
   return (
@@ -196,6 +163,7 @@ export const DataProvider = ({ children }) => {
         validate,
         onChange,
         onSubmit,
+        resetForm,
 
         inputRefs,
         isDragActive,

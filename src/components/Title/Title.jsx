@@ -9,7 +9,9 @@ export const Title = () => {
   if (formData?.name) {
     return (
       <h1 className={styles.title}>
-        Congrats, <span className={styles.colored}>{formData.name}</span>!
+        <div>
+          Congrats, <span className={styles.colored}>{formData.name}</span>!
+        </div>
         <span className={styles.shifted}>Your ticket is ready.</span>
       </h1>
     );

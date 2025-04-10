@@ -28,3 +28,27 @@
   height: 80px;
   border-radius: 8px;
 }
+
+@media (max-width: 420px) {
+  .user {
+    gap: 10px;
+  }
+
+  .username {
+    color: var(--lightest);
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .usergit {
+    color: var(--gray);
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  .img {
+    width: 50px;
+    height: 50px;
+  }
+}
