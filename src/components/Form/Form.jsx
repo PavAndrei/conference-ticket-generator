@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 
 import { TextInput } from "../TextInput/TextInput";
 import { FileInput } from "../FileInput/FileInput";
+import { Circle } from "../../icons/Circle";
 
 export const Form = () => {
   const { inputs, onSubmit } = useContext(DataContext);
@@ -34,7 +35,9 @@ export const Form = () => {
       <button onClick={onSubmit} className={styles.btn}>
         Generate My Ticket
       </button>
-      <div className={styles.decor}></div>
+      <div className={styles.decor}>
+        <Circle />
+      </div>
     </form>
   );
 };
