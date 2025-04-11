@@ -14,7 +14,7 @@
   position: absolute;
   top: 12%;
   left: 85%;
-  content: url("/images/pattern-circle.svg");
+  content: url("./images/pattern-circle.svg");
   z-index: -100;
 }
 
