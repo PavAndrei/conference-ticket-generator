@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.ticket::after {
+.icon {
   position: absolute;
   top: 12%;
   left: 85%;

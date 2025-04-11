@@ -5,8 +5,11 @@ import { randomNumber } from "../../utils/randomNumber";
 import { TicketShape } from "../../icons/TicketShape";
 import { TicketConference } from "../TicketConference/TicketConference";
 import { TicketUser } from "../TicketUser/TicketUser";
+
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
+
+import { Circle } from "../../icons/Circle";
 
 export const Ticket = () => {
   const { resetForm } = useContext(DataContext);
@@ -22,6 +25,9 @@ export const Ticket = () => {
           <TicketUser />
         </div>
         <div className={styles.number}>#{randomNumber()}</div>
+        <div className={styles.icon}>
+          <Circle />
+        </div>
       </div>
 
       <button className={styles.reset} type="button" onClick={resetForm}>
